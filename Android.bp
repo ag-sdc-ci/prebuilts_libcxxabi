@@ -101,8 +101,6 @@ filegroup {
     name: "libcxxabi_headers",
     srcs: ["include/*.h"],
     visibility: [
-        "//external/libcxx:__subpackages__",
-        "//prebuilts/external/libcxx:__subpackages__",
         "//visibility:public",
     ],
 }
