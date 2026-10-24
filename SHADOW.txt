@@ -1,0 +1,5 @@
+shadow prebuilt repo: libcxxabi (dual-slice host+target)
+  upstream: external/libcxxabi
+  build version: clang-r510928
+  branch: 34-r510928
+  date: 2026-10-24

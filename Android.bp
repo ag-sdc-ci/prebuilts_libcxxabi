@@ -1,0 +1,108 @@
+// Auto-generated prebuilt Blueprint for prebuilts_libcxxabi referencing clang-r510928
+package {
+    default_applicable_licenses: ["external_libcxxabi_license"],
+}
+
+license {
+    name: "external_libcxxabi_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-BSD",
+        "SPDX-license-identifier-MIT",
+        "SPDX-license-identifier-NCSA",
+    ],
+    license_text: [
+        "LICENSE.TXT",
+        "NOTICE",
+    ],
+}
+
+cc_defaults {
+    name: "libc++abi_defaults",
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    native_bridge_supported: true,
+    export_include_dirs: ["include"],
+    stl: "none",
+    rtti: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libc++abi",
+    host_supported: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    native_bridge_supported: true,
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    min_sdk_version: "apex_inherit",
+    sdk_version: "current",
+    target: {
+        host: {
+            srcs: ["host/libc++abi.a"],
+        },
+        android_arm64: {
+            srcs: ["target/aarch64/lib/libc++abi.a"],
+        },
+        android_arm: {
+            srcs: ["target/arm/lib/libc++abi.a"],
+        },
+        android_x86_64: {
+            srcs: ["target/x86_64/lib/libc++abi.a"],
+        },
+        android_x86: {
+            srcs: ["target/i386/lib/libc++abi.a"],
+        },
+    },
+}
+
+cc_prebuilt_library_static {
+    name: "libc++demangle",
+    host_supported: false,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    native_bridge_supported: true,
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    min_sdk_version: "apex_inherit",
+    target: {
+        android_arm64: {
+            srcs: ["target/aarch64/lib/libc++abi.a"],
+        },
+        android_arm: {
+            srcs: ["target/arm/lib/libc++abi.a"],
+        },
+        android_x86_64: {
+            srcs: ["target/x86_64/lib/libc++abi.a"],
+        },
+        android_x86: {
+            srcs: ["target/i386/lib/libc++abi.a"],
+        },
+    },
+}
+
+filegroup {
+    name: "libcxxabi_headers",
+    srcs: ["include/*.h"],
+    visibility: [
+        "//external/libcxx:__subpackages__",
+        "//prebuilts/external/libcxx:__subpackages__",
+        "//visibility:public",
+    ],
+}
